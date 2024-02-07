@@ -33,8 +33,8 @@ def load_data(file_name):
     for col in range(2, 10 + 1):
         cecha = sheet.cell(row=11, column=col).value
         poczatkowa = sheet.cell(row=12, column=col).value
-        wartosc = sheet.cell(row=14, column=col).value
         rozwinieta = sheet.cell(row=13, column=col).value
+        wartosc = poczatkowa + rozwinieta
         cechy[cecha] = {'poczatkowa': poczatkowa, 'rozwinieta': rozwinieta, 'wartosc': wartosc}
 
     # Wczytanie danych umiejętności
@@ -47,7 +47,7 @@ def load_data(file_name):
             cecha = sheet.cell(row=row, column=2+(a*5)).value
             wartosc = sheet.cell(row=row, column=3+(a*5)).value
             rozwinieta = sheet.cell(row=row, column=4+(a*5)).value
-            suma = sheet.cell(row=row, column=5+(a*5)).value
+            suma = wartosc + rozwinieta
             umiejetnosci[umiejetnosc] = {'cecha': cecha, 'wartosc': wartosc, 'rozwinieta': rozwinieta, 'suma': suma}
         a+=1        
 
